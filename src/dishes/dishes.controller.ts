@@ -17,7 +17,6 @@ export class DishesController {
 
   @Post()
   create(@Body() createDishDto: CreateDishDto) {
-    return 'hola';
     return this.dishesService.create(createDishDto);
   }
 
