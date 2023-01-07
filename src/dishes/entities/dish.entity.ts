@@ -27,4 +27,9 @@ export class Dish {
     default: true,
   })
   active: boolean;
+
+  @Column('text', {
+    nullable: true,
+  })
+  image: string;
 }

@@ -7,6 +7,9 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+
+import { ValidRoles } from '../users/interfaces';
+import { Auth } from '../users/decorators/auth.decorator';
 import { DishesService } from './dishes.service';
 import { CreateDishDto } from './dto/create-dish.dto';
 import { UpdateDishDto } from './dto/update-dish.dto';
@@ -16,6 +19,7 @@ export class DishesController {
   constructor(private readonly dishesService: DishesService) {}
 
   @Post()
+  @Auth(ValidRoles.admin)
   create(@Body() createDishDto: CreateDishDto) {
     return this.dishesService.create(createDishDto);
   }
