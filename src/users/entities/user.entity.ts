@@ -1,8 +1,11 @@
+import { Order } from '../../orders/entities/order.entity';
 import {
   BeforeInsert,
   BeforeUpdate,
   Column,
+  CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -30,6 +33,12 @@ export class User {
     default: ['user'],
   })
   roles: string[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 
   @BeforeInsert()
   checkFieldsBeforeInsert() {

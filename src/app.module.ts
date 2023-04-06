@@ -5,6 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EnvConfiguration } from './config/env.config';
 import { DishesModule } from './dishes/dishes.module';
 import { UsersModule } from './users/users.module';
+import { CategoriesModule } from './categories/categories.module';
+import { AdditionalgroupsModule } from './additionalgroups/additionalgroups.module';
+import { AdditionalsModule } from './additionals/additionals.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -23,6 +27,10 @@ import { UsersModule } from './users/users.module';
     }),
     DishesModule,
     UsersModule,
+    CategoriesModule,
+    AdditionalgroupsModule,
+    AdditionalsModule,
+    OrdersModule,
   ],
   controllers: [],
   providers: [],
